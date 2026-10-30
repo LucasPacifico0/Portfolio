@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locadora de Veículos — Painel</title>
+  <meta name="theme-color" content="#0A0D14" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" aria-label="Navegação">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 16h14M6.5 16l1.6-5.2A2 2 0 0 1 10 9.4h4a2 2 0 0 1 1.9 1.4L17.5 16M4 16v2.5h2.5V16M17.5 16v2.5H20V16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="16" r="1.2" fill="currentColor"/><circle cx="16" cy="16" r="1.2" fill="currentColor"/></svg>
+        </span>
+        <div><strong>Locadora</strong><small>Sistema de locação</small></div>
+      </div>
+
+      <nav>
+        <ul class="menu" role="tablist">
+          <li><button class="menu__item is-active" data-view="painel" role="tab" aria-selected="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Painel</button></li>
+          <li><button class="menu__item" data-view="locacao" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nova locação</button></li>
+          <li><button class="menu__item" data-view="frota" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24"><path d="M5 16h14M6.5 16l1.6-5.2A2 2 0 0 1 10 9.4h4a2 2 0 0 1 1.9 1.4L17.5 16M4 16v2.5h2.5V16M17.5 16v2.5H20V16"/></svg>Frota</button></li>
+          <li><button class="menu__item" data-view="pessoas" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.6 2.6 3 5.2"/></svg>Clientes &amp; equipe</button></li>
+          <li><button class="menu__item" data-view="relatorio" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Relatório</button></li>
+        </ul>
+      </nav>
+
+      <div class="side-foot">
+        <a class="back" href="../#projetos">← Voltar ao portfólio</a>
+        <button class="reset" id="reset-btn" type="button">Restaurar dados de exemplo</button>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main" id="main">
+      <!-- PAINEL -->
+      <section class="view is-active" id="view-painel" aria-labelledby="t-painel">
+        <header class="view__head">
+          <div><p class="kicker">visão geral</p><h1 id="t-painel">Painel</h1></div>
+          <button class="btn btn--primary" data-goto="locacao">+ Nova locação</button>
+        </header>
+
+        <div class="kpis" id="kpis"></div>
+
+        <div class="grid-2">
+          <article class="card">
+            <header class="card__head"><h2>Últimas locações</h2><button class="link" data-goto="relatorio">Ver relatório →</button></header>
+            <div id="ultimas"></div>
+          </article>
+          <article class="card">
+            <header class="card__head"><h2>Disponibilidade da frota</h2><button class="link" data-goto="frota">Gerenciar →</button></header>
+            <ul class="avail" id="avail"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- NOVA LOCAÇÃO -->
+      <section class="view" id="view-locacao" aria-labelledby="t-locacao" hidden>
+        <header class="view__head">
+          <div><p class="kicker">operação</p><h1 id="t-locacao">Nova locação</h1></div>
+        </header>
+
+        <div class="rent">
+          <form class="card form" id="form-locacao" novalidate>
+            <div class="field">
+              <label for="f-cliente">Cliente</label>
+              <select id="f-cliente" required></select>
+            </div>
+            <div class="field">
+              <label for="f-colab">Colaborador (vendedor)</label>
+              <select id="f-colab" required></select>
+            </div>
+
+            <fieldset class="field">
+              <legend>Veículo</legend>
+              <div class="car-picker" id="car-picker" role="radiogroup"></div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-dias">Quantidade de dias</label>
+              <div class="days">
+                <button type="button" class="days__btn" data-step="-1" aria-label="Diminuir dias">−</button>
+                <input id="f-dias" type="number" min="1" max="365" value="1" inputmode="numeric" required />
+                <button type="button" class="days__btn" data-step="1" aria-label="Aumentar dias">+</button>
+              </div>
+              <div class="tiers" id="tiers">
+                <span data-min="6">+5 dias · 5%</span>
+                <span data-min="16">+15 dias · 10%</span>
+                <span data-min="31">+30 dias · 20%</span>
+              </div>
+            </div>
+
+            <p class="form__error" id="form-error" role="alert"></p>
+            <button class="btn btn--primary btn--block" type="submit">Confirmar locação</button>
+          </form>
+
+          <aside class="card summary" aria-live="polite">
+            <h2>Resumo do valor</h2>
+            <div class="summary__car" id="sum-car">Selecione um veículo</div>
+            <dl class="summary__rows">
+              <div><dt>Diária</dt><dd id="s-diaria">—</dd></div>
+              <div><dt>Aluguel (<span id="s-dias">1</span> dia(s))</dt><dd id="s-base">—</dd></div>
+              <div><dt>Seguro (25%)</dt><dd id="s-seguro">—</dd></div>
+              <div><dt>Desconto (<span id="s-desc-pct">0</span>%)</dt><dd id="s-desc" class="neg">—</dd></div>
+            </dl>
+            <div class="summary__total"><span>Total</span><strong id="s-total">R$ 0,00</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FROTA -->
+      <section class="view" id="view-frota" aria-labelledby="t-frota" hidden>
+        <header class="view__head">
+          <div><p class="kicker">cadastro</p><h1 id="t-frota">Frota</h1></div>
+        </header>
+
+        <form class="card form form--inline" id="form-carro" novalidate>
+          <h2>Adicionar carro</h2>
+          <div class="field"><label for="c-placa">Placa</label><input id="c-placa" placeholder="ABC-1234" maxlength="8" required /></div>
+          <div class="field"><label for="c-marca">Marca</label><input id="c-marca" placeholder="Toyota" required /></div>
+          <div class="field"><label for="c-modelo">Modelo</label><input id="c-modelo" placeholder="Corolla" required /></div>
+          <div class="field"><label for="c-valor">Diária (R$)</label><input id="c-valor" type="number" min="1" step="0.01" placeholder="150" required /></div>
+          <button class="btn btn--primary" type="submit">Adicionar</button>
+          <p class="form__error" id="carro-error" role="alert"></p>
+        </form>
+
+        <div class="cars" id="cars"></div>
+      </section>
+
+      <!-- PESSOAS -->
+      <section class="view" id="view-pessoas" aria-labelledby="t-pessoas" hidden>
+        <header class="view__head">
+          <div><p class="kicker">cadastro</p><h1 id="t-pessoas">Clientes &amp; equipe</h1></div>
+        </header>
+        <div class="grid-2">
+          <article class="card">
+            <header class="card__head"><h2>Clientes</h2><span class="count" id="count-clientes"></span></header>
+            <form class="add-row" data-kind="clientes" novalidate>
+              <input placeholder="Nome do cliente" aria-label="Nome do cliente" required />
+              <button class="btn btn--sm btn--primary" type="submit">Adicionar</button>
+            </form>
+            <ul class="people" id="list-clientes"></ul>
+          </article>
+          <article class="card">
+            <header class="card__head"><h2>Colaboradores</h2><span class="count" id="count-colaboradores"></span></header>
+            <form class="add-row" data-kind="colaboradores" novalidate>
+              <input placeholder="Nome do colaborador" aria-label="Nome do colaborador" required />
+              <button class="btn btn--sm btn--primary" type="submit">Adicionar</button>
+            </form>
+            <ul class="people" id="list-colaboradores"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- RELATÓRIO -->
+      <section class="view" id="view-relatorio" aria-labelledby="t-relatorio" hidden>
+        <header class="view__head">
+          <div><p class="kicker">financeiro</p><h1 id="t-relatorio">Relatório geral</h1></div>
+        </header>
+        <div class="kpis kpis--3" id="fin"></div>
+        <article class="card">
+          <header class="card__head"><h2>Locações realizadas</h2><span class="count" id="count-locacoes"></span></header>
+          <div class="table-wrap">
+            <table class="table" id="table-locacoes">
+              <thead><tr>
+                <th>Nº</th><th>Data</th><th>Cliente</th><th>Vendedor</th><th>Veículo</th>
+                <th class="num">Dias</th><th class="num">Aluguel</th><th class="num">Seguro</th><th class="num">Total</th><th>Status</th><th></th>
+              </tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Navegação inferior (mobile) -->
+    <nav class="tabbar" aria-label="Navegação rápida">
+      <button data-view="painel" class="is-active">Painel</button>
+      <button data-view="locacao">Locar</button>
+      <button data-view="frota">Frota</button>
+      <button data-view="pessoas">Pessoas</button>
+      <button data-view="relatorio">Relatório</button>
+    </nav>
+  </div>
+
+  <!-- Comprovante -->
+  <dialog class="receipt" id="receipt" aria-labelledby="r-title">
+    <div class="receipt__inner">
+      <header>
+        <span class="receipt__ok" aria-hidden="true">✓</span>
+        <h2 id="r-title">Comprovante de locação</h2>
+        <p class="receipt__id" id="r-id"></p>
+      </header>
+      <dl class="receipt__rows" id="r-rows"></dl>
+      <div class="receipt__total"><span>Total final</span><strong id="r-total"></strong></div>
+      <div class="receipt__actions">
+        <button class="btn btn--ghost" id="r-copy" type="button">Copiar comprovante</button>
+        <button class="btn btn--primary" id="r-close" type="button">Fechar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

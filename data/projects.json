@@ -1,0 +1,320 @@
+{
+  "generated_at": "2026-10-29",
+  "projects": [
+    {
+      "slug": "everyfounder",
+      "title": "EveryFounder",
+      "tagline": "Sites profissionais e acessíveis para micro e pequenas empresas.",
+      "summary": "Plataforma digital para desenvolvimento e entrega de websites profissionais para PMEs: processo padronizado de briefing, design, desenvolvimento e publicação, com foco em performance, SEO e conversão.",
+      "impact": "Coloca negócios locais no digital com um site que gera contato, não só presença.",
+      "status": "active",
+      "category": "saas",
+      "categories": [
+        "saas",
+        "web_dev"
+      ],
+      "github_url": null,
+      "live_url": null,
+      "cover_image": null,
+      "is_featured": true,
+      "featured_order": 1,
+      "stack": [
+        {
+          "name": "HTML5",
+          "highlight": false
+        },
+        {
+          "name": "CSS3",
+          "highlight": false
+        },
+        {
+          "name": "JavaScript",
+          "highlight": true
+        },
+        {
+          "name": "SEO",
+          "highlight": false
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Público-alvo",
+          "value": "PMEs",
+          "unit": null,
+          "type": "business"
+        },
+        {
+          "label": "Entrega",
+          "value": "Mobile-first",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    },
+    {
+      "slug": "everycapital",
+      "title": "EveryCapital",
+      "tagline": "Gestão financeira pessoal e empresarial (CPF/CNPJ) orientada a dados.",
+      "summary": "Plataforma completa de controle financeiro com categorização de despesas, relatórios e dashboards analíticos. Modelagem relacional que separa perfis CPF e CNPJ e prepara a base para categorização automática com IA.",
+      "impact": "Transforma extrato bruto em decisão: para onde o dinheiro vai e o que ajustar.",
+      "status": "in_progress",
+      "category": "saas",
+      "categories": [
+        "saas",
+        "database",
+        "ai_data"
+      ],
+      "github_url": null,
+      "live_url": null,
+      "cover_image": null,
+      "is_featured": true,
+      "featured_order": 2,
+      "stack": [
+        {
+          "name": "JavaScript",
+          "highlight": true
+        },
+        {
+          "name": "Node.js",
+          "highlight": true
+        },
+        {
+          "name": "MySQL",
+          "highlight": true
+        },
+        {
+          "name": "Modelagem de Dados",
+          "highlight": true
+        },
+        {
+          "name": "HTML5",
+          "highlight": false
+        },
+        {
+          "name": "CSS3",
+          "highlight": false
+        },
+        {
+          "name": "Data Viz",
+          "highlight": false
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Perfis suportados",
+          "value": "CPF + CNPJ",
+          "unit": null,
+          "type": "business"
+        },
+        {
+          "label": "Modelo de negócio",
+          "value": "Freemium",
+          "unit": null,
+          "type": "business"
+        },
+        {
+          "label": "Camada analítica",
+          "value": "Dashboards",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    },
+    {
+      "slug": "everynutri",
+      "title": "EveryNutri",
+      "tagline": "Planos alimentares, calorias e metas — nutricionista e paciente no mesmo lugar.",
+      "summary": "Aplicação web para nutricionistas e clientes gerenciarem planos alimentares, acompanhamento calórico e metas nutricionais, com banco relacional para histórico de evolução.",
+      "impact": "Reduz o atrito entre consulta e rotina: o plano sai do PDF e vira acompanhamento.",
+      "status": "mvp",
+      "category": "saas",
+      "categories": [
+        "saas",
+        "database"
+      ],
+      "github_url": null,
+      "live_url": null,
+      "cover_image": null,
+      "is_featured": false,
+      "featured_order": 3,
+      "stack": [
+        {
+          "name": "Python",
+          "highlight": true
+        },
+        {
+          "name": "MySQL",
+          "highlight": true
+        },
+        {
+          "name": "JavaScript",
+          "highlight": true
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Usuários",
+          "value": "Nutri + Paciente",
+          "unit": null,
+          "type": "business"
+        },
+        {
+          "label": "Fase",
+          "value": "MVP",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    },
+    {
+      "slug": "clinica-dra-gabriela",
+      "title": "Clínica Dra. Gabriela Medeiros",
+      "tagline": "Website responsivo para a área médica.",
+      "summary": "Website institucional responsivo construído com HTML, CSS e JavaScript Vanilla: hierarquia clara de informação, apresentação de especialidades e caminho direto para contato/agendamento.",
+      "impact": "Presença digital profissional que transmite confiança ao paciente antes da consulta.",
+      "status": "concluded",
+      "category": "client_work",
+      "categories": [
+        "client_work",
+        "web_dev"
+      ],
+      "github_url": null,
+      "live_url": "https://SEU-LINK-AQUI.com",
+      "cover_image": null,
+      "is_featured": false,
+      "featured_order": 4,
+      "stack": [
+        {
+          "name": "HTML5",
+          "highlight": false
+        },
+        {
+          "name": "CSS3",
+          "highlight": false
+        },
+        {
+          "name": "JavaScript",
+          "highlight": true
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Dependências",
+          "value": "0",
+          "unit": "libs",
+          "type": "technical"
+        },
+        {
+          "label": "Layout",
+          "value": "Responsivo",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    },
+    {
+      "slug": "tonny-cabelos",
+      "title": "Tonny Cabelos",
+      "tagline": "Landing page comercial focada em agendamentos.",
+      "summary": "Landing page para salão de beleza estruturada para conversão: proposta de valor no topo, prova social, serviços e CTA de agendamento sempre visível.",
+      "impact": "Página desenhada com um único objetivo: transformar visita em horário marcado.",
+      "status": "concluded",
+      "category": "client_work",
+      "categories": [
+        "client_work",
+        "web_dev"
+      ],
+      "github_url": null,
+      "live_url": "https://SEU-LINK-AQUI.com",
+      "cover_image": null,
+      "is_featured": false,
+      "featured_order": 5,
+      "stack": [
+        {
+          "name": "HTML5",
+          "highlight": false
+        },
+        {
+          "name": "CSS3",
+          "highlight": false
+        },
+        {
+          "name": "JavaScript",
+          "highlight": true
+        },
+        {
+          "name": "SEO",
+          "highlight": false
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Objetivo",
+          "value": "Agendamento",
+          "unit": null,
+          "type": "business"
+        },
+        {
+          "label": "CTA",
+          "value": "Sempre visível",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    },
+    {
+      "slug": "projeto-locadora",
+      "title": "Sistema de Locadora de Veículos",
+      "tagline": "Sistema de locação de veículos: regras de negócio em Python e painel web interativo.",
+      "summary": "Começou como sistema em linha de comando em Python (cadastro de veículos, clientes e colaboradores, controle de estoque, seguro de 25% e desconto progressivo de 5%, 10% e 20%) e ganhou um front-end web com painel, simulação de valor em tempo real, comprovante, devolução e relatório financeiro.",
+      "impact": "Precificação automatizada: do pedido ao comprovante sem nenhuma conta manual.",
+      "status": "concluded",
+      "category": "database",
+      "categories": [
+        "database",
+        "web_dev"
+      ],
+      "github_url": null,
+      "live_url": "locadora/",
+      "cover_image": null,
+      "is_featured": false,
+      "featured_order": 6,
+      "stack": [
+        {
+          "name": "Python",
+          "highlight": true
+        },
+        {
+          "name": "JavaScript",
+          "highlight": true
+        },
+        {
+          "name": "HTML5",
+          "highlight": false
+        },
+        {
+          "name": "CSS3",
+          "highlight": false
+        },
+        {
+          "name": "Git / GitHub",
+          "highlight": false
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Desconto progressivo",
+          "value": "até 20",
+          "unit": "%",
+          "type": "business"
+        },
+        {
+          "label": "Interfaces",
+          "value": "CLI + Web",
+          "unit": null,
+          "type": "technical"
+        }
+      ]
+    }
+  ]
+}

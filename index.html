@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Pacífico — Dados, IA e Software</title>
+  <meta name="description" content="Lucas Pacífico — desenvolvedor focado em Banco de Dados (MySQL), Python, Inteligência Artificial e Front-End. Transformo dados em produtos digitais." />
+  <meta name="theme-color" content="#0A0D14" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <meta property="og:title" content="Lucas Pacífico — Dados, IA e Software" />
+  <meta property="og:description" content="Engenharia de dados, IA e automação em Python — do banco de dados à interface." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Início">
+        <span class="nav__logo-mark">LP</span><span class="nav__logo-dot">.</span>dev
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato" class="btn btn--sm btn--primary">Vamos conversar</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow reveal">
+            <span class="pulse" aria-hidden="true"></span>
+            Disponível para projetos e oportunidades
+          </p>
+
+          <h1 class="hero__title reveal">
+            Transformo <span class="text-accent">dados</span> em decisões
+            e código em <span class="text-accent">produto</span>.
+          </h1>
+
+          <p class="hero__lead reveal">
+            Engenharia de dados, IA e automação em Python, do banco MySQL bem
+            modelado à interface que o seu cliente usa. Ciência da Computação,
+            Data Science e Front-End trabalhando como um só sistema.
+          </p>
+
+          <div class="hero__ctas reveal">
+            <a href="#projetos" class="btn btn--primary">
+              Ver projetos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#contato" class="btn btn--ghost">Iniciar um projeto</a>
+          </div>
+
+          <dl class="hero__stats reveal">
+            <div><dt>Projetos</dt><dd data-count-projects>5</dd></div>
+            <div><dt>Em produção / ativos</dt><dd data-count-live>3</dd></div>
+            <div><dt>Formação</dt><dd>CC + Pós IA</dd></div>
+          </dl>
+        </div>
+
+        <!-- Terminal / "dashboard" visual -->
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="terminal glass">
+            <div class="terminal__bar">
+              <span></span><span></span><span></span>
+              <p>portfolio.sql</p>
+            </div>
+            <pre class="terminal__body"><code id="terminal-code"></code><span class="caret"></span></pre>
+          </div>
+          <div class="float-card glass float-card--a">
+            <span class="float-card__label">pipeline</span>
+            <span class="float-card__value">Python → MySQL → UI</span>
+          </div>
+          <div class="float-card glass float-card--b">
+            <span class="float-card__label">status</span>
+            <span class="float-card__value"><i class="dot dot--ok"></i> build passing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJETOS ============ -->
+    <section class="section" id="projetos" aria-labelledby="projetos-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker">// projetos</p>
+          <h2 id="projetos-title" class="section__title">Produtos e entregas com resultado</h2>
+          <p class="section__lead">Do SaaS próprio ao site que gera agendamento para o cliente. Filtre por área.</p>
+        </header>
+
+        <div class="filters reveal" role="toolbar" aria-label="Filtrar projetos por categoria" id="filters">
+          <button class="chip is-active" data-filter="all" aria-pressed="true">Todos <span class="chip__count"></span></button>
+          <button class="chip" data-filter="ai_data" aria-pressed="false">IA &amp; Data Science <span class="chip__count"></span></button>
+          <button class="chip" data-filter="database" aria-pressed="false">Banco de Dados &amp; Backend <span class="chip__count"></span></button>
+          <button class="chip" data-filter="saas" aria-pressed="false">SaaS &amp; Produtos <span class="chip__count"></span></button>
+          <button class="chip" data-filter="frontend" aria-pressed="false">Frontend &amp; Clientes <span class="chip__count"></span></button>
+        </div>
+
+        <p class="sr-only" aria-live="polite" id="filter-status"></p>
+
+        <div class="projects" id="projects-grid">
+          <!-- cards renderizados por js/app.js a partir de data/projects.json -->
+          <div class="skeleton glass"></div><div class="skeleton glass"></div><div class="skeleton glass"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="section section--alt" id="stack" aria-labelledby="stack-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker">// stack</p>
+          <h2 id="stack-title" class="section__title">Cinco pilares, um sistema</h2>
+          <p class="section__lead">Cada camada conversa com a próxima: o dado nasce bem modelado, é processado em Python e chega claro na tela.</p>
+        </header>
+
+        <div class="pillars">
+          <article class="pillar glass reveal">
+            <div class="pillar__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-3 0-4 1.3-4 3v2h4v1H6c-2 0-3 1.5-3 4s1 4 3 4h2v-3c0-1.7 1.3-3 3-3h4c1.7 0 3-1.3 3-3V6c0-1.7-1.5-3-6-3Z M12 21c3 0 4-1.3 4-3v-2h-4v-1h6c2 0 3-1.5 3-4s-1-4-3-4h-2v3c0 1.7-1.3 3-3 3H9c-1.7 0-3 1.3-3 3v3c0 1.7 1.5 3 6 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Python</h3>
+            <p>Automações, scripts de ETL, APIs e a cola entre banco, IA e produto.</p>
+            <ul class="tags"><li>Automação</li><li>ETL</li><li>APIs</li><li>Pandas</li></ul>
+          </article>
+
+          <article class="pillar glass reveal">
+            <div class="pillar__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 5.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6M4.5 11.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>MySQL &amp; Modelagem</h3>
+            <p>Modelos relacionais normalizados, índices certos e consultas que escalam com o negócio.</p>
+            <ul class="tags"><li>Modelagem ER</li><li>Normalização</li><li>Views</li><li>Índices</li></ul>
+          </article>
+
+          <article class="pillar glass reveal">
+            <div class="pillar__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2 19 19M5 19l2.8-2.8M16.2 7.8 19 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>IA &amp; Data Science</h3>
+            <p>Análise exploratória, modelos preditivos e dados prontos para IA (embeddings, RAG).</p>
+            <ul class="tags"><li>Machine Learning</li><li>Análise de dados</li><li>Data Viz</li><li>Pós UNINTER</li></ul>
+          </article>
+
+          <article class="pillar glass reveal">
+            <div class="pillar__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M9 13l-2 2 2 2M15 13l2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Front-End</h3>
+            <p>Interfaces rápidas, acessíveis e responsivas, sem peso desnecessário.</p>
+            <ul class="tags"><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Tailwind</li></ul>
+          </article>
+
+          <article class="pillar glass reveal">
+            <div class="pillar__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 8.2v7.6M18 11.2c0 3-3 3.8-6 4.3-2.4.4-4.2 1-5 1.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Git &amp; GitHub</h3>
+            <p>Versionamento, branches organizadas e entregas rastreáveis do commit ao deploy.</p>
+            <ul class="tags"><li>Git flow</li><li>Pull Requests</li><li>GitHub Pages</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section" id="sobre" aria-labelledby="sobre-title">
+      <div class="container about">
+        <div class="about__text reveal">
+          <p class="kicker">// sobre</p>
+          <h2 id="sobre-title" class="section__title">Mentalidade de produto, rigor de engenharia</h2>
+          <p>
+            Sou <strong>Lucas Pacífico Medeiros Formiga Moreira</strong>, 21 anos, cursando
+            Ciência da Computação e Pós-Graduação em Data Science e Inteligência Artificial (UNINTER).
+          </p>
+          <p>
+            Meu foco é construir produtos digitais que resolvem problema de verdade, para PMEs,
+            profissionais liberais e para os meus próprios SaaS. Começo pelo dado: se a base
+            estiver certa, relatório, automação e IA viram consequência.
+          </p>
+        </div>
+        <ol class="process reveal">
+          <li class="glass"><span>01</span><div><h3>Diagnóstico</h3><p>Entendo o objetivo de negócio antes da primeira linha de código.</p></div></li>
+          <li class="glass"><span>02</span><div><h3>Modelagem</h3><p>Desenho o banco e o fluxo de dados que sustentam o produto.</p></div></li>
+          <li class="glass"><span>03</span><div><h3>Construção</h3><p>Python no back, interface leve no front, entregas incrementais.</p></div></li>
+          <li class="glass"><span>04</span><div><h3>Medição</h3><p>Métrica definida, resultado acompanhado, produto evolui.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CTA / CONTATO ============ -->
+    <section class="section" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <div class="cta glass reveal">
+          <div class="cta__glow" aria-hidden="true"></div>
+          <p class="kicker">// próximo passo</p>
+          <h2 id="contato-title" class="cta__title">Tem um problema que os dados podem resolver?</h2>
+          <p class="cta__lead">
+            Site que converte, sistema com banco bem estruturado, automação em Python ou
+            uma vaga em engenharia de software: me conte o objetivo e eu respondo com um caminho.
+          </p>
+
+          <div class="cta__options">
+            <a class="option glass" href="mailto:lucaspacificoestudos@gmail.com?subject=Novo%20projeto%20-%20Portf%C3%B3lio">
+              <strong>Novo projeto</strong><span>Site, sistema ou SaaS para o seu negócio</span>
+            </a>
+            <a class="option glass" href="mailto:lucaspacificoestudos@gmail.com?subject=Solu%C3%A7%C3%A3o%20com%20dados%20%2F%20IA">
+              <strong>Dados &amp; IA</strong><span>Automação, análise ou modelagem de banco</span>
+            </a>
+            <a class="option glass" href="mailto:lucaspacificoestudos@gmail.com?subject=Oportunidade%20profissional">
+              <strong>Recrutadores</strong><span>Estágio e vagas em engenharia de software/dados</span>
+            </a>
+          </div>
+
+          <div class="cta__actions">
+            <a href="mailto:lucaspacificoestudos@gmail.com" class="btn btn--primary btn--lg">Enviar e-mail</a>
+            <a href="https://wa.me/55SEUNUMERO" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/lucas-pacifico/" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/LucasPacifico0" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <button class="copy-email" id="copy-email" data-email="lucaspacificoestudos@gmail.com">
+            <code>lucaspacificoestudos@gmail.com</code><span>copiar</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Lucas Pacífico. Feito com HTML, CSS e JavaScript puros.</p>
+      <a href="#top">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
